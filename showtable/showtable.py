@@ -44,16 +44,16 @@ class ShowJsonTable():
         for k,v in zip(cache_keys,cache_values):
             title+=k+self.get_space(list(v)[-1],len(k))+"|"
         print(title)
-        
         first_values=list(cache_values)[0]
         for index in range(0,len(first_values)-1):
+            print(line)
             v_line="|"
-            f_item=first_values[index]
-            v_line+=f_item+self.get_space(first_values[-1],len(f_item))+"|"
+            f_item=str(first_values[index])
+            v_line+=f_item+self.get_space(first_values[-1],self.get_len(f_item))+"|"
             for rindex in range(1,len(cache_values)):
                 list_item=list(cache_values)
-                r_item=list_item[rindex][index]
-                v_line+=r_item+self.get_space(list_item[rindex][-1],len(r_item))+"|"
+                r_item=str(list_item[rindex][index])
+                v_line+=r_item+self.get_space(list_item[rindex][-1],self.get_len(r_item))+"|"
             print(v_line)
         print(line)    
 
@@ -62,9 +62,15 @@ class ShowJsonTable():
         if len(arr)<=0:
             return 0
         try:
-            return len(max(arr,key=lambda item:len(item)))
+            return len(max(arr,key=lambda item:len(item+"")))
         except Exception as e:
-            print("Parse error.%s"(e.msg))
+            return 0
+        return 0
+
+    def get_len(self,arg):
+        try:
+            return len(str(arg))
+        except Exception as e:
             return 0
         return 0
 
@@ -106,7 +112,7 @@ class ShowJsonTable():
 
 if __name__=="__main__":
     #test_json={"dadasdsadsa":"davfssadasdasdsadadas","dasdsadsada":"dasxczxcsadasdss","fscsarersdas":"caadasdsadsad","dasfsddewwsds":"dasdsadsadsa"}
-    test_json={"app":[{"nima":"debi","hahha":"hehhe","nimade":"deca"},{"nima":"debi","hahha":"hehhe","nimade":"deca"},{"nima":"debi","hahha":"hehhe","nimade":"deca"}]}
+    test_json={"app":[{"name":"wang","age":24,"height":"166cm","birthday":"1990-2-23","city":"shenzhen","conutry":"China"},{"name":"xu","age":25,"height":"175cm","birthday":"1989-5-23","city":"changsha","conutry":"China"},{"name":"xie","age":22,"height":"180cm","birthday":"1992-3-21","city":"fujian","conutry":"China"}]}
     p=ShowJsonTable(test_json)
     p.create_table()
 
