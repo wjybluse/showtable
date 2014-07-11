@@ -35,49 +35,65 @@ class ShowJsonTable():
                     cache[pk].append(pv)
         line="+"
         cache_keys,cache_values=cache.keys(),cache.values()
+
+        #setting max len and create table border
         for k,v in zip(cache_keys,cache_values):
             max_line=max(len(k),self.get_max_length(v))
             v.append(max_line)
-            line+=self.get_line(max_line-1)+"+"
+            line+=self.get_top_line(max_line-1)+"+"
         print(line)
+
+        #create table head
         title="|"
         for k,v in zip(cache_keys,cache_values):
             title+=k+self.get_space(list(v)[-1],len(k))+"|"
         print(title)
-        
+
+        #create table content
         first_values=list(cache_values)[0]
         for index in range(0,len(first_values)-1):
+            print(line)
             v_line="|"
-            f_item=first_values[index]
-            v_line+=f_item+self.get_space(first_values[-1],len(f_item))+"|"
+            f_item=str(first_values[index])
+            v_line+=f_item+self.get_space(first_values[-1],self.get_len(f_item))+"|"
             for rindex in range(1,len(cache_values)):
                 list_item=list(cache_values)
-                r_item=list_item[rindex][index]
-                v_line+=r_item+self.get_space(list_item[rindex][-1],len(r_item))+"|"
+                r_item=str(list_item[rindex][index])
+                v_line+=r_item+self.get_space(list_item[rindex][-1],self.get_len(r_item))+"|"
             print(v_line)
         print(line)    
 
 
+    #the max length of array
     def get_max_length(self,arr=[]):
         if len(arr)<=0:
             return 0
         try:
-            return len(max(arr,key=lambda item:len(item)))
+            return len(max(arr,key=lambda item:len(str(item)))
         except Exception as e:
-            print("Parse error.%s"(e.msg))
             return 0
         return 0
 
+    #the length of object to string
+    def get_len(self,arg):
+        try:
+            return len(str(arg))
+        except Exception as e:
+            return 0
+        return 0
+
+    #the title of table head
     def get_header(self):
         return ["Property","Value"]
 
+    #show the finally table
     def show_table(self,keys,values,max_key=0,max_value=0):
         key,value=self.get_header()
         if len(key)>max_key:
             max_key=len(key)
         if len(value)>max_value:
             max_value=len(value)
-        head=line=end="%s+%s"%(self.get_line(max_key),self.get_line(max_value))
+        head=line=end="%s+%s"%(self.get_top_line(max_key),self.get_top_line(max_value))
         print(head)
         print(self.get_string_line(key,value)(max_key,max_value))
         for k,v in zip(keys,values):
@@ -85,13 +101,14 @@ class ShowJsonTable():
             print(self.get_string_line(k,v)(max_key,max_value))
         print(end)
 
-
-    def get_line(self,s_len):
+    #create the table border
+    def get_top_line(self,s_len):
         s=""
         for i in range(0,s_len):
             s+="-"
         return s+"-"
 
+    #count needed space
     def get_space(self,max_len,actual_len):
         s=""
         for i in range(actual_len,max_len):
@@ -106,7 +123,7 @@ class ShowJsonTable():
 
 if __name__=="__main__":
     #test_json={"dadasdsadsa":"davfssadasdasdsadadas","dasdsadsada":"dasxczxcsadasdss","fscsarersdas":"caadasdsadsad","dasfsddewwsds":"dasdsadsadsa"}
-    test_json={"app":[{"nima":"debi","hahha":"hehhe","nimade":"deca"},{"nima":"debi","hahha":"hehhe","nimade":"deca"},{"nima":"debi","hahha":"hehhe","nimade":"deca"}]}
+    test_json={"app":[{"name":"wang","age":24,"height":"166cm","birthday":"1990-2-23","city":"shenzhen","conutry":"China"},{"name":"xu","age":25,"height":"175cm","birthday":"1989-5-23","city":"changsha","conutry":"China"},{"name":"xie","age":22,"height":"180cm","birthday":"1992-3-21","city":"fujian","conutry":"China"}]}
     p=ShowJsonTable(test_json)
     p.create_table()
 
