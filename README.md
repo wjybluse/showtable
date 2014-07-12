@@ -20,7 +20,7 @@
 
 ### The result show in the console 
 
-<<<<<<< HEAD
+
 +----+---+------+--------+---------+-------+
 |name|age|height|city&emsp;&emsp;   |birthday &nbsp;|conutry|
 +----+---+------+--------+---------+-------+
@@ -29,7 +29,7 @@
 |xu  &nbsp;&nbsp;&nbsp;&nbsp;|25 |175cm |changsha|1989-5-23|China|
 +----+---+------+--------+---------+-------+
 |xie &nbsp;&nbsp;&nbsp;|22&nbsp; |180cm|fujian&nbsp;&nbsp;&nbsp;  |1992-3-21|China &nbsp; |
-=======
+
 +----+---+------+--------+---------+-------+  
 |name|age|height|city&emsp;&emsp;   |birthday &nbsp;|conutry|  
 +----+---+------+--------+---------+-------+  
@@ -38,7 +38,6 @@
 |xu  &nbsp;&nbsp;&nbsp;&nbsp;|25 |175cm |changsha|1989-5-23|China|  
 +----+---+------+--------+---------+-------+  
 |xie &nbsp;&nbsp;&nbsp;|22&nbsp; |180cm|fujian&nbsp;&nbsp;&nbsp;  |1992-3-21|China &nbsp; |  
->>>>>>> origin/master
 +----+---+------+--------+---------+-------+
 
 ###Example
