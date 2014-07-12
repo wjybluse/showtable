@@ -20,6 +20,7 @@
 
 ### The result show in the console 
 
+<<<<<<< HEAD
 +----+---+------+--------+---------+-------+
 |name|age|height|city&emsp;&emsp;   |birthday &nbsp;|conutry|
 +----+---+------+--------+---------+-------+
@@ -28,6 +29,16 @@
 |xu  &nbsp;&nbsp;&nbsp;&nbsp;|25 |175cm |changsha|1989-5-23|China|
 +----+---+------+--------+---------+-------+
 |xie &nbsp;&nbsp;&nbsp;|22&nbsp; |180cm|fujian&nbsp;&nbsp;&nbsp;  |1992-3-21|China &nbsp; |
+=======
++----+---+------+--------+---------+-------+  
+|name|age|height|city&emsp;&emsp;   |birthday &nbsp;|conutry|  
++----+---+------+--------+---------+-------+  
+|wang|24 |166cm |shenzhen|1990-2-23|China|  
++----+---+------+--------+---------+-------+  
+|xu  &nbsp;&nbsp;&nbsp;&nbsp;|25 |175cm |changsha|1989-5-23|China|  
++----+---+------+--------+---------+-------+  
+|xie &nbsp;&nbsp;&nbsp;|22&nbsp; |180cm|fujian&nbsp;&nbsp;&nbsp;  |1992-3-21|China &nbsp; |  
+>>>>>>> origin/master
 +----+---+------+--------+---------+-------+
 
 ###Example
@@ -39,4 +50,7 @@ json_value=client.get()
 client=RestClient("https","localhost",8086,"/update/book/1")
 client.patch(content)
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
