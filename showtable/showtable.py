@@ -35,21 +35,15 @@ class ShowJsonTable():
                     cache[pk].append(pv)
         line="+"
         cache_keys,cache_values=cache.keys(),cache.values()
-
-        #setting max len and create table border
         for k,v in zip(cache_keys,cache_values):
             max_line=max(len(k),self.get_max_length(v))
             v.append(max_line)
-            line+=self.get_top_line(max_line-1)+"+"
+            line += self.get_line(max_line - 1) + "+"
         print(line)
-
-        #create table head
         title="|"
         for k,v in zip(cache_keys,cache_values):
             title+=k+self.get_space(list(v)[-1],len(k))+"|"
         print(title)
-
-        #create table content
         first_values=list(cache_values)[0]
         for index in range(0,len(first_values)-1):
             print(line)
@@ -64,17 +58,15 @@ class ShowJsonTable():
         print(line)    
 
 
-    #the max length of array
     def get_max_length(self,arr=[]):
         if len(arr)<=0:
             return 0
         try:
-            return len(max(arr,key=lambda item:len(str(item)))
+            return len(max(arr, key=lambda item: len(item + "")))
         except Exception as e:
             return 0
         return 0
 
-    #the length of object to string
     def get_len(self,arg):
         try:
             return len(str(arg))
@@ -82,18 +74,16 @@ class ShowJsonTable():
             return 0
         return 0
 
-    #the title of table head
     def get_header(self):
         return ["Property","Value"]
 
-    #show the finally table
     def show_table(self,keys,values,max_key=0,max_value=0):
         key,value=self.get_header()
         if len(key)>max_key:
             max_key=len(key)
         if len(value)>max_value:
             max_value=len(value)
-        head=line=end="%s+%s"%(self.get_top_line(max_key),self.get_top_line(max_value))
+        head = line = end = "%s+%s" % (self.get_line(max_key), self.get_line(max_value))
         print(head)
         print(self.get_string_line(key,value)(max_key,max_value))
         for k,v in zip(keys,values):
@@ -101,14 +91,13 @@ class ShowJsonTable():
             print(self.get_string_line(k,v)(max_key,max_value))
         print(end)
 
-    #create the table border
-    def get_top_line(self,s_len):
+
+    def get_line(self, s_len):
         s=""
         for i in range(0,s_len):
             s+="-"
         return s+"-"
 
-    #count needed space
     def get_space(self,max_len,actual_len):
         s=""
         for i in range(actual_len,max_len):
