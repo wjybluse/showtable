@@ -62,11 +62,7 @@ class ShowJsonTable():
         if len(arr)<=0:
             return 0
         try:
-<<<<<<< HEAD
-            return len(max(arr, key=lambda item: len(item + "")))
-=======
-            return len(max(arr,key=lambda item:len(item+"")))
->>>>>>> origin/master
+            return len(max(arr, key=lambda item: len(str(item))))
         except Exception as e:
             return 0
         return 0
