@@ -49,7 +49,3 @@ json_value=client.get()
 client=RestClient("https","localhost",8086,"/update/book/1")
 client.patch(content)
 ```
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
