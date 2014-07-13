@@ -46,6 +46,6 @@ You can use it to send rest message very easier，but only optimized for json fo
 client=RestClient("https","localhost",8086)
 json_value=client.get(url="/show/book/1")
 #TODO
-client=RestClient("https","localhost",8086)
+client=RestClient("https","localhost",8086')
 client.patch(content,url="/show/book/1")
 ```
