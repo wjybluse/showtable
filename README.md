@@ -43,9 +43,9 @@
 ###Example
 You can use it to send rest message very easier，but only optimized for json format message. 
 ```python
-client=RestClient("https","localhost",8086,"/show/book/1")
-json_value=client.get()
+client=RestClient("https","localhost",8086)
+json_value=client.get(url="/show/book/1")
 #TODO
-client=RestClient("https","localhost",8086,"/update/book/1")
-client.patch(content)
+client=RestClient("https","localhost",8086)
+client.patch(content,url="/show/book/1")
 ```
