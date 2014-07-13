@@ -12,13 +12,14 @@ def get_header():
     #headers["Authorizon"] = "Basic %s" % (base64.encodebytes
     return headers
 
+
 class TestHTTPserver(unittest.TestCase):
     def test_send_mesage_failed(self):
         server = HTTPServer("127.0.0.1", 6000)
         self.assertRegex(server._get_response("GET", "/blog/show/1", body=None, header=get_header()), "errorReason")
 
     def test_send_message_success(self):
-        server=HTTPServer("127.0.0.1",3000)
+        server = HTTPServer("127.0.0.1", 3000)
         value = server._get_response("GET", "/blog/show/1", body=None, header=get_header())
         print(value)
         self.assertNotRegex(value, "errorReason")
@@ -34,5 +35,5 @@ class TestHTTPserver(unittest.TestCase):
         self.assertNotRegex(value, "errorReason")
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()
