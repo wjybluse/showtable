@@ -10,26 +10,23 @@ class RestClient():
     client.get()
     '''
 
-    def __init__(self, scheme, host, port, url):
+    def __init__(self, scheme, host, port):
         """
         :param scheme:str  http or https
         :param host: str like 127.0.0.1 or localhost
         :param port: int default port is 80 when scheme is http or 443 when scheme is https
-        :param url: str /blog/post/1
         """
-        self.url = url
         if 'https'.__eq__(scheme.lower()):
             print("the request is https")
             self.server = HTTPSServer(host, port)
         else:
             self.server = HTTPServer(host, port)
-        #dynamic bound the method for self
+        #dynamic bind the method for self
         self.add_dynamic_method(lambda meth: setattr(self, meth, self._send_message(meth.upper())))
 
     def _send_message(self, meth):
-        def get_rsp(body=None):
-            return self.server._get_response(meth, self.url, body=body, header=self.headers)
-
+        def get_rsp(body=None,url="/"):
+            return self.server._get_response(meth, url, body=body, header=self.headers)
         return get_rsp
 
     def add_dynamic_method(self, fp):
