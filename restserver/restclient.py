@@ -32,7 +32,7 @@ class RestClient():
         return get_rsp
 
     def add_dynamic_method(self, fp):
-        [fp(meth) for meth in ["get", "post", "put", "head", "patch"]]
+        [fp(meth) for meth in ["get", "post", "put", "head", "patch", "delete"]]
 
 
     def _headers(self):
