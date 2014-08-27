@@ -48,7 +48,7 @@ def get_max_length(arr=list()):
     """
     if len(arr) <= 0:
         return 0
-    return len(str(max(arr, key=lambda item: len(str(item)))))
+    return len(max(arr, key=lambda item: len(str(item))))
 
 
 def titles():
