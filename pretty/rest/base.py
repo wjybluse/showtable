@@ -1,5 +1,5 @@
 __author__ = 'wan'
-import json
+from pretty.tools.utils import *
 
 
 class HTTPScheme():
@@ -7,17 +7,19 @@ class HTTPScheme():
         self.host = host
         self.port = port
 
-    def _get_response(self, meth, uri, body=None, header={}, fun=None):
+    def response(self, method, uri, body=None, headers={}, func=None):
+        try:
+            self._client.request(method, uri, body, headers)
+            rsp = self._client.getresponse()
+            msg = rsp.read()
+            if msg is None or len(msg) <= 0:
+                return good_response_without_message()
+            return message_with_func(msg.encode('utf-8'), func)
+        except Exception as e:
+            return bad_response(e)
+        finally:
+            self._client.close()
+
+    @property
+    def _client(self):
         pass
-
-    def parse_json(self, e):
-        return json.dumps({"errorReason": str(e)})
-
-    def parse_rsp(self, rsp, fp=None):
-        if fp is None:
-            return json.dumps(rsp)
-        else:
-            return fp(rsp)
-
-    def default_ok_message(self):
-        return json.dump({"resultMsg": "ok"})
