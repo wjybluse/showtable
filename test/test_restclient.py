@@ -1,7 +1,7 @@
 __author__ = 'wan'
 import unittest
 
-from restserver.restclient import RestClient
+from rest.restclient import RestClient
 
 
 class TestRestClient(unittest.TestCase):

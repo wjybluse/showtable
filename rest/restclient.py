@@ -17,7 +17,6 @@ class RestClient():
         :param port: int default port is 80 when scheme is http or 443 when scheme is https
         """
         if 'https'.__eq__(scheme.lower()):
-            print("the request is https")
             self.server = HTTPSServer(host, port)
         else:
             self.server = HTTPServer(host, port)

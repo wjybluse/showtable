@@ -20,25 +20,19 @@
 
 ### The result show in the console 
 
-
+<pre>
 +----+---+------+--------+---------+-------+
-|name|age|height|city&emsp;&emsp;   |birthday &nbsp;|conutry|
+|name|age|height|city    |birthday |conutry|
 +----+---+------+--------+---------+-------+
-|wang|24 |166cm |shenzhen|1990-2-23|China|
+|wang|24 |166cm |shenzhen|1990-2-23|China  |
 +----+---+------+--------+---------+-------+
-|xu  &nbsp;&nbsp;&nbsp;&nbsp;|25 |175cm |changsha|1989-5-23|China|
+|xu  |25 |175cm |changsha|1989-5-23|China  |
 +----+---+------+--------+---------+-------+
-|xie &nbsp;&nbsp;&nbsp;|22&nbsp; |180cm|fujian&nbsp;&nbsp;&nbsp;  |1992-3-21|China &nbsp; |
-
+|xie |23 | 180cm|fujian  |1992-3-21|China  |
++----+---+------+--------+---------+-------+
+|wang|24 |166cm |shenzhen|1990-2-23|China  |
 +----+---+------+--------+---------+-------+  
-|name|age|height|city&emsp;&emsp;   |birthday &nbsp;|conutry|  
-+----+---+------+--------+---------+-------+  
-|wang|24 |166cm |shenzhen|1990-2-23|China|  
-+----+---+------+--------+---------+-------+  
-|xu  &nbsp;&nbsp;&nbsp;&nbsp;|25 |175cm |changsha|1989-5-23|China|  
-+----+---+------+--------+---------+-------+  
-|xie &nbsp;&nbsp;&nbsp;|22&nbsp; |180cm|fujian&nbsp;&nbsp;&nbsp;  |1992-3-21|China &nbsp; |  
-+----+---+------+--------+---------+-------+
+</pre>
 
 ###Example
 You can use it to send rest message very easier，but only optimized for json format message. 

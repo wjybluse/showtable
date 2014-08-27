@@ -2,7 +2,7 @@ __author__ = 'wan'
 
 MARK = '|'
 
-from tables.buildline import BuildLine
+from table.buildline import BuildLine
 
 
 class ShowJsonTable():
