@@ -9,12 +9,21 @@ class PrettyTable(formatter.Formatter):
         formatter.Formatter.__init__(message, func, filtes)
 
     def show(self):
-        pass
+        for line in self.message:
+            print(line)
 
     def create(self):
         self.message = eval(self.message)
-        # create table if message is simply json
-        pass
+        self._before_filter()
+        self.message = handle_json(self.message)
+
+    def _before_filter(self):
+        if self.filters is not None:
+            (self.message.pop(key) for key in self.filters)
+
+
+def handle_json(message=dict()):
+    return handle_normal_json(message)
 
 
 def handle_normal_json(message=dict()):
