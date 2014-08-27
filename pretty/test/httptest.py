@@ -1,8 +1,8 @@
 __author__ = 'wan'
 import unittest
 
-from pretty.rest.http import HTTPServer
-from pretty.rest.https import HTTPSServer
+from pretty.rest.http import HTTPClient
+from pretty.rest.https import HTTPSClient
 
 
 def get_header():
@@ -15,22 +15,22 @@ def get_header():
 
 class TestHTTPserver(unittest.TestCase):
     def test_send_mesage_failed(self):
-        server = HTTPServer("127.0.0.1", 6000)
-        self.assertRegex(server._get_response("GET", "/blog/show/1", body=None, header=get_header()), "errorReason")
+        server = HTTPClient("127.0.0.1", 6000)
+        self.assertRegex(server._get_response("GET", "/blog/pretty/1", body=None, header=get_header()), "errorReason")
 
     def test_send_message_success(self):
-        server = HTTPServer("127.0.0.1", 3000)
-        value = server._get_response("GET", "/blog/show/1", body=None, header=get_header())
+        server = HTTPClient("127.0.0.1", 3000)
+        value = server._get_response("GET", "/blog/pretty/1", body=None, header=get_header())
         print(value)
         self.assertNotRegex(value, "errorReason")
 
     def test_https_send_failed(self):
-        server = HTTPSServer("127.0.0.1", 3000)
-        self.assertRegex(server._get_response("GET", "/blog/show/1", None, header=get_header()), "errorReason")
+        server = HTTPSClient("127.0.0.1", 3000)
+        self.assertRegex(server._get_response("GET", "/blog/pretty/1", None, header=get_header()), "errorReason")
 
     def test_https_send_success(self):
-        server = HTTPSServer("127.0.0.1", 5000)
-        value = server._get_response("PUT", "/blog/show/1", body='{"dsads":"dsadsa"}', header=get_header())
+        server = HTTPSClient("127.0.0.1", 5000)
+        value = server._get_response("PUT", "/blog/pretty/1", body='{"dsads":"dsadsa"}', header=get_header())
         print(value)
         self.assertNotRegex(value, "errorReason")
 
