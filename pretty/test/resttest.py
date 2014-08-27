@@ -1,7 +1,7 @@
 __author__ = 'wan'
 import unittest
 
-from pretty.rest.restclient import RestClient
+from pretty.rest.rest import RestClient
 
 
 class TestRestClient(unittest.TestCase):

@@ -1,8 +1,8 @@
 __author__ = 'wan'
 import unittest
 
-from pretty.rest.http_server import HTTPServer
-from pretty.rest.https_server import HTTPSServer
+from pretty.rest.http import HTTPServer
+from pretty.rest.https import HTTPSServer
 
 
 def get_header():

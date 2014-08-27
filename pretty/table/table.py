@@ -2,7 +2,7 @@ __author__ = 'wan'
 
 MARK = '|'
 
-from pretty.table.buildline import BuildLine
+from pretty.table.builder import BuildLine
 
 
 class ShowJsonTable():
@@ -36,7 +36,7 @@ class ShowJsonTable():
         max_key, max_value = get_max_length(arr=list(keys)), get_max_length(arr=list(values))
         self.show_table(keys, values, max_key=max_key, max_value=max_value)
 
-    #parse the json array
+    # parse the json array
     def handle_list_component(self, json=dict):
         cache = {}
         for k, v in json.items():
@@ -145,7 +145,7 @@ def get_space(max_len, actual_len):
 
 if __name__ == "__main__":
     # test_json = {"dadasdsadsa": "davfssadasdasdsadadas", "dasdsadsada": "dasxczxcsadasdss",
-    #             "fscsarersdas": "caadasdsadsad", "dasfsddewwsds": "dasdsadsadsa"}
+    # "fscsarersdas": "caadasdsadsad", "dasfsddewwsds": "dasdsadsadsa"}
     test_json = {"app": [
         {"name": "wang", "age": 24, "height": "166cm", "birthday": "1990-2-23", "city": "shenzhen", "conutry": "China"},
         {"name": "xu", "age": 25, "height": "175cm", "birthday": "1989-5-23", "city": "changsha", "conutry": "China"},

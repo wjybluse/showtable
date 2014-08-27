@@ -1,6 +1,6 @@
 __author__ = 'wan'
-from pretty.rest.restserver.http_server import HTTPServer
-from pretty.rest.restserver.https_server import HTTPSServer
+from pretty.rest.server.http_server import HTTPServer
+from pretty.rest.server.https_server import HTTPSServer
 
 
 class RestClient():
