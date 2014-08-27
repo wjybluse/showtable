@@ -1,8 +1,8 @@
 __author__ = 'wan'
 import unittest
 
-from restserver.http_server import HTTPServer
-from restserver.https_server import HTTPSServer
+from rest.http_server import HTTPServer
+from rest.https_server import HTTPSServer
 
 
 def get_header():
