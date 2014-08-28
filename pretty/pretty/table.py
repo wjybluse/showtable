@@ -58,7 +58,7 @@ def handle_simple_list(message=dict()):
             count_list += 1
             list_component = value
     if count_list > 1:
-        return handle_compex_list(message)
+        return handle_complex_list(message)
 
     if list_component is None:
         return handle_normal_json(message)
