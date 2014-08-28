@@ -103,10 +103,44 @@ def _handle_table(table):
 
 
 def handle_list(message=list()):
+    # list component has some situation
+    # 1.list contains same json object
+    # 2.list contains diff json object
+    item = message[0]
+    if isinstance(item, dict):
+        keys = item.keys()
+        val = [val for val in message if isinstance(val, dict) and val.has_key(key) for key in keys]
+        if len(val) == len(message):
+            return handle_simple_list({"message": message})
+    else:
+        return _check_other(message)
+
+
+def _check_other(message):
+    """
+    :rtype : object
+    """
+    flag = True
+    for val in message:
+        if isinstance(val, dict):
+            flag = False
+    if not flag:
+        return _handle_normal_list(message)
+    table = dict(Index="Value")
+    for index in range(0, len(message)):
+        table[index] = message[index]
+    return _create_table(table)
+
+
+def handle_complex_list(message=dict()):
     pass
 
 
-def handle_compex_list(message=dict()):
+def _handle_normal_list(message):
+    pass
+
+
+def _create_table():
     pass
 
 
