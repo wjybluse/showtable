@@ -133,15 +133,31 @@ def _check_other(message):
 
 
 def handle_complex_list(message=dict()):
-    pass
+    tables = list()
+    for key, value in message.items():
+        if isinstance(value, list):
+            tables.append(handle_list(value))
+        elif isinstance(value, dict):
+            tables.append(handle_normal_json(value))
+        else:
+            pass
+            # TODO
+        return tables
 
 
-def _handle_normal_list(message):
-    pass
+def _handle_normal_list(message=list()):
+    for value in message:
+        if isinstance(value, dict):
+            return handle_list(message)
+    return _create_list(message)
 
 
 def _create_table():
     pass
+
+
+def _create_list(message=list()):
+    return str(message)
 
 
 
