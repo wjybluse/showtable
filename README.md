@@ -1,6 +1,7 @@
-##READ ME
-###1.Getting start with pretty show
-
+###READ ME
+####1.Getting start with pretty show
+<p>The pretty show is supported to show your json string as table,xml,json formatter and other.
+The basic result like this:</p>
 ```javascript
 //show simple json in console
 {
@@ -32,9 +33,7 @@
     ]
 }
 ```
-
-### The result show in the console 
-
+-->console
 <pre>
 +----+---+------+--------+---------+-------+
 |name|age|height|city    |birthday |conutry|
@@ -49,7 +48,13 @@
 +----+---+------+--------+---------+-------+  
 </pre>
 
-###Example
+####2.Document
+<ul>
+<li>1.Provided RestClient api to send rest message,we supported post,get,patch,delete,put and head method.<li>
+<li>2.Provided the formatter for creating pretty print in console,we supported json,table,xml,yaml now.</li> 
+<li>3.Provided parameter parser in future.</li>
+</ul>
+####3.Example
 You can use it to send rest message very easier，but only optimized for json format message. 
 ```python
 client=RestClient("https","localhost",8086)
